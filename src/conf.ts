@@ -13,3 +13,6 @@ await app.register(cors)
 
 import { healthRoutes } from './routes/healthRoutes';
 app.register(healthRoutes, { prefix: '/api/verify' })
+
+import { UUIDRoutes } from "./routes/UUIDRoutes";
+app.register(UUIDRoutes, { prefix: '/api/UUID' })
