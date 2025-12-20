@@ -9,6 +9,11 @@ export class baseErrors extends Error
         this.statusCode = statusCode;
     }
 
+    static throwGenerationFailed(generator: any)
+    {
+        throw new baseErrors(`Falha interna ao gerar ${generator}.`, 404);
+    }
+    
     static throwMissing(field: string) 
     {
         throw new baseErrors(`O campo ${field} é obrigatório e não foi fornecido.`, 400);

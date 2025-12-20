@@ -9,15 +9,8 @@ export const app: FastifyInstance = fastify({
     }
 })
 
-import { FastifyError, FastifyRequest, FastifyReply } from 'fastify';
-import { baseErrors } from "./helpers/errors/base-errors";
-
-app.setErrorHandler((error: FastifyError, req: FastifyRequest, reply:FastifyReply) => {
-    if(error instanceof baseErrors) return reply.status(error.statusCode).send({ error: error.name, message: error.message });
-
-    // Erro padrão
-    return reply.status(500).send({ error: "Internal Server Error" });
-});
+import { errorHandler } from "./middlewares/error_handler";
+app.setErrorHandler(errorHandler)
 
 await app.register(cors)
 
