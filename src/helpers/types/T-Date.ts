@@ -1,0 +1,1 @@
+export type _date = Date | Date[]
