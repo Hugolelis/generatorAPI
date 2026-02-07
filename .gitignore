@@ -1,6 +1,4 @@
 node_modules
-generators.txt
 .env
-certs
 logs
 /src/generated/prisma
